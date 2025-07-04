@@ -28,7 +28,7 @@ def categorize_files(folder_path):
         #check if it is a file
         if os.path.isfile(file_path):
             for folder, extensions in file_types.items(): # same like entries in js
-                if ext in extensions:
+                if ext.lower() in [e.lower() for e in extensions]:
                     target_folder = os.path.join(folder_path, folder)
                     os.makedirs(target_folder, exist_ok=True) # creating the extension folder if it does not exist
                     log_file = os.path.join(target_folder, f'{folder}_log.txt')
