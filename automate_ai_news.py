@@ -5,21 +5,18 @@
 #  2. Filter articles based on keywords (e.g., "AI")
 #  3. Send alert via Email (recommended) or WhatsApp
 
-import requests
-import re
-from utils import format_date
-import smtplib
-from email.message import EmailMessage
-from dotenv import load_dotenv
 import os
+import re
+import requests
+from utils import format_date
+from dotenv import load_dotenv
+from email_msg import send_email
+from twilio_msg import send_whatsapp_message
 
-# Load environment variables from .env file
+#Load environment variables from .env file
 load_dotenv()
 
 NEWS_API_KEY = os.getenv("NEWS_API_KEY")
-EMAIL_SENDER = os.getenv("EMAIL_SENDER")
-EMAIL_PASSWORD = os.getenv("EMAIL_PASSWORD")
-EMAIL_RECEIVER = os.getenv("EMAIL_RECEIVER")
 
 def fetch_ai_headlines():
    url = "https://newsapi.org/v2/everything"
@@ -46,22 +43,15 @@ def fetch_ai_headlines():
         if pattern.search(article.get("title", "") or "") or pattern.search(article.get("description", "") or "")
    ]
 
-def send_email(subject, body):
-    message = EmailMessage()
-    message["Subject"] = subject
-    message["From"] = EMAIL_SENDER
-    message["To"] = EMAIL_RECEIVER
-    message.set_content(body)
-    
-    with smtplib.SMTP_SSL("smtp.gmail.com", 465) as smtp:
-        smtp.login(EMAIL_SENDER, EMAIL_PASSWORD)
-        smtp.send_message(message)
-
 headlines = fetch_ai_headlines()
 
 if headlines:
+    # Send email with AI-related headlines
     email_body = "\n\n".join(headlines)
     send_email("🔥 AI News Update", email_body)
+    # Send WhatsApp message
+    whatsapp_message = "🔥 AI News Update:\n\n" + "\n\n".join(headlines)
+    send_whatsapp_message(whatsapp_message)
     print("AI-related headlines sent via email:")
     # Print the headlines to console
     for headline in headlines:
