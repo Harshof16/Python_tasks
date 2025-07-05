@@ -5,6 +5,7 @@ https://docs.google.com/document/d/15PbMiBKqShVTukSFt-pp_Xz1PLvmm2fzhqYpb6PW37k/
 
 1. folderOrganizer.py
 2. clean_temp_files.py
-3. folderOrganizer.py
+3. categorize_folder.py
 4. scrap_titles.py
 5. scrap_multiple_pages.py
+6. fetch_github_user.py
