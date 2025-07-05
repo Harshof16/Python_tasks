@@ -5,3 +5,5 @@ https://docs.google.com/document/d/15PbMiBKqShVTukSFt-pp_Xz1PLvmm2fzhqYpb6PW37k/
 
 1. folderOrganizer.py
 2. clean_temp_files.py
+3. folderOrganizer.py
+4. scrap_titles.py
