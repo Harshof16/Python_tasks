@@ -9,3 +9,4 @@ https://docs.google.com/document/d/15PbMiBKqShVTukSFt-pp_Xz1PLvmm2fzhqYpb6PW37k/
 4. scrap_titles.py
 5. scrap_multiple_pages.py
 6. fetch_github_user.py
+7. fetch_github_repos.py
