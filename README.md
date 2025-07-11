@@ -12,3 +12,4 @@ https://docs.google.com/document/d/15PbMiBKqShVTukSFt-pp_Xz1PLvmm2fzhqYpb6PW37k/
 7. fetch_github_repos.py (authentication and pagination)
 8. automate_ai_news.py (via mail and whatsapp)
 9. crud_inmemory.py
+10. crud_csv.py
