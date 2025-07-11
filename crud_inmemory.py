@@ -14,6 +14,12 @@
 contacts = []
 
 def add_contact(name, email, phone):
+    # check if contact already exists
+    for contact in contacts:
+        if contact["name"].lower() == name.lower():
+            print(f"Contact {name} already exists")
+            return
+    # if not, add contact
     contact = {
   "name": name,
   "email": email,
@@ -46,6 +52,16 @@ def delete_contact(name):
     # Only those contacts whose names do not match the given name are kept in the new list.
     print(f"Contact deleted: {name}")
 
+# search contact by name
+def search_contact(name):
+    for contact in contacts:
+        if contact["name"].lower() == name.lower():
+            print(f"Contact found: {contact['name']} - {contact['email']} - {contact['phone']}")
+            return
+    print(f"Contact {name} not found")
+
+
+
 add_contact("Alice", "alice@example.com", "1234567890")
 add_contact("Bob", "bob@example.com", "0987654321")
 list_contacts()
@@ -53,8 +69,10 @@ update_contact("Alice", "aliice@example.com", "1334567890")
 list_contacts()
 delete_contact("Bob")
 list_contacts()
-
-
+add_contact("Charlie", "charlie@example.com", "1234567890")
+search_contact("Charlie")
+delete_contact("Charlie")
+add_contact("Alice", "alicaa@example.com", "1234567890")
 
 
 
