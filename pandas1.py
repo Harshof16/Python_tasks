@@ -2,8 +2,15 @@
 
 import pandas as pd
 import matplotlib.pyplot as plt
+import os
 
-df = pd.read_csv('github_repos.csv')
+output_file = "github_repos.csv"
+
+if not os.path.exists(output_file):
+    print(f"File '{output_file}' does not exist. Exiting.")
+    exit()
+
+df = pd.read_csv(output_file)
 
 print('Total repos', len(df))
 print('Total stars:', df['Stars'].sum())
@@ -46,9 +53,11 @@ print(recent)
 
 # plot top 10 repos by stars
 top10 = df.sort_values(by='Stars', ascending=False).head(10)
-ax = top10.plot(x='Name',y='Stars',kind='bar',title='Repository count by language',color='orange')
-for container in ax.containers:
-    ax.bar_label(container, label_type='edge')
+ax = top10.plot(x='Name', y='Stars', kind='bar', title='Repository count by language', color='orange')
+# The 'bar_label' method is used to add labels (like the value of each bar) on top of the bars.
+# By iterating over ax.containers, we ensure that labels are added to all groups of bars (useful for grouped bar plots).
+for bar_container in ax.containers:
+    ax.bar_label(bar_container, label_type='edge')
 plt.tight_layout()
 plt.show()
 
