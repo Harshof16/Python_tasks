@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Repo Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body { font-family: Arial; margin: 20px; }
+        h1 { color: #333; }
+        .summary { display: flex; gap: 2rem; margin-bottom: 2rem; }
+        .card { padding: 1rem; border: 1px solid #ddd; border-radius: 8px; box-shadow: 2px 2px 5px #eee; }
+        table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
+        th, td { padding: 0.5rem; border: 1px solid #ddd; text-align: left; }
+    </style>
+</head>
+<body>
+    <h1>📊 GitHub Repository Dashboard</h1>
+
+    <div class="summary">
+        <div class="card">Total Repos: <b>{{ total_repos }}</b></div>
+        <div class="card">Total Stars: <b>{{ total_stars }}</b></div>
+        <div class="card">Total Forks: <b>{{ total_forks }}</b></div>
+    </div>
+
+    <h2>⭐ Top 5 Most Starred Repositories</h2>
+    <table>
+        <tr><th>Name</th><th>Stars</th><th>Forks</th></tr>
+        {% for _, row in top_repos.iterrows() %}
+        <tr>
+            <td>{{ row['Name'] }}</td>
+            <td>{{ row['Stars'] }}</td>
+            <td>{{ row['Forks'] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h2>📈 Stars Bar Chart</h2>
+    <canvas id="starChart" width="600" height="300"></canvas>
+    <script>
+        const ctx = document.getElementById("starChart").getContext("2d");
+        const data = {
+            labels: {{ chart_data | map(attribute=0) | list | tojson }},
+            datasets: [{
+                label: "Stars",
+                data: {{ chart_data | map(attribute=1) | list | tojson }},
+                backgroundColor: "rgba(54, 162, 235, 0.6)"
+            }]
+        };
+        new Chart(ctx, { type: "bar", data });
+    </script>
+</body>
+</html>
