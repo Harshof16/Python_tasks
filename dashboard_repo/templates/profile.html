@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Github Results</title>
+</head>
+<body>
+    {% if error %}
+    <p style="color: red;">{{ error }}</p>
+    <a href="/">Try another user</a>
+{% else %}
+
+<h2>👤 GitHub User: {{ username }}</h2>
+<p>Total Repositories: {{ total_repos }}</p>
+<p>⭐ Total Stars: {{ total_stars }}</p>
+<p>🍴 Total Forks: {{ total_forks }}</p>
+
+<h3>Top 5 Starred Repositories:</h3>
+<ul>
+{% for repo in top_repos %}
+    <li><a href="{{ repo.html_url }}" target="_blank">{{ repo.name }}</a> — ⭐ {{ repo.stargazers_count }}</li>
+{% endfor %}
+</ul>
+
+<a href="/">Search again</a>
+
+{% endif %}
+</body>
+</html>

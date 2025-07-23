@@ -16,4 +16,4 @@ https://docs.google.com/document/d/15PbMiBKqShVTukSFt-pp_Xz1PLvmm2fzhqYpb6PW37k/
 11. crud_sqlite.py
 12. pandas1.py
 13. flask_dashboard (render from github_repos.csv)
-14. 
+14. dashboard_repo (render directly from url)
