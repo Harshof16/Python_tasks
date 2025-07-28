@@ -1,7 +1,31 @@
-# Python_tasks
-To grasp the fundamentals of python in practical way
+# 🐍 Python Tasks – Daily Mini Projects
 
-https://docs.google.com/document/d/15PbMiBKqShVTukSFt-pp_Xz1PLvmm2fzhqYpb6PW37k/edit?usp=sharing
+A collection of **practical Python mini-projects** and scripts built to automate everyday tasks, improve problem-solving, and deepen my Python understanding.  
+
+⚙️ Updated regularly with new challenges.  
+
+---
+
+## 🚀 Features
+
+- 🛠️ **Daily Task Automation**  
+  Scripts to automate repetitive tasks like file renaming, data parsing, etc.
+
+- 🌐 **Web Scraping Tools**  
+  Extract data from websites using `requests`, `BeautifulSoup`, etc.
+
+- 📊 **Data Handling Projects**  
+  Read/write CSV, JSON, XML, and work with files and folders.
+
+- 🐚 **CLI Tools**  
+  Command-line Python utilities for various tasks.
+
+- 🧪 **Python Practice**  
+  Improve logic, syntax, and real-world usage through hands-on coding.
+
+---
+
+## 📂 Folder Structure
 
 1. folderOrganizer.py
 2. clean_temp_files.py
@@ -17,3 +41,7 @@ https://docs.google.com/document/d/15PbMiBKqShVTukSFt-pp_Xz1PLvmm2fzhqYpb6PW37k/
 12. pandas1.py
 13. flask_dashboard (render from github_repos.csv)
 14. dashboard_repo (render directly from url)
+
+---
+
+https://docs.google.com/document/d/15PbMiBKqShVTukSFt-pp_Xz1PLvmm2fzhqYpb6PW37k/edit?usp=sharing
